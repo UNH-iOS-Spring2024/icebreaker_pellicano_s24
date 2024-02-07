@@ -15,6 +15,8 @@ struct ContentView: View {
     @State var txtAnswer: String = ""
     @State var txtQuestion: String = ""
     
+    @State var questions = [Question]()
+    
     var body: some View {
         
         VStack {
@@ -53,6 +55,14 @@ struct ContentView: View {
     
     func setRandomQuestion(){
         print("Set random question pressed")
+        var newQuestion = questions.randomElement()?.text
+        if(newQuestion != nil){
+            self.txtQuestion = newQuestion!
+        }
+    }
+    
+    func getQuestionsFromFirebase(){
+        
     }
     
     func writeStudentToFirebase(){
