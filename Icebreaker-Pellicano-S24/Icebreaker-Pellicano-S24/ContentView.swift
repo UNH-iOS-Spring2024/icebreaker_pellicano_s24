@@ -43,11 +43,18 @@ struct ContentView: View {
             TextField("Answer", text: $txtAnswer)
             
             
-            Button(action: { writeStudentToFirebase()
-            }){
+            Button(action: { 
+                if(txtAnswer != "") {
+                    writeStudentToFirebase()
+                }
+                resetTextFields()
+                
+            })
+            {
                 Text("Submit")
                     .font(.system(size: 28))
             }
+            .padding(30)
         }
         .font(.largeTitle)
         .multilineTextAlignment(.center)
@@ -85,12 +92,39 @@ struct ContentView: View {
             }
     }
     
+    func resetTextFields(){
+        txtFirstName = ""
+        txtLastName = ""
+        txtPrefName = ""
+        txtAnswer = ""
+        txtQuestion = ""
+    }
+    
     func writeStudentToFirebase(){
         print("Submit button pressed")
         print("First Name: \(txtFirstName)")
         print("Last Name: \(txtLastName)")
         print("Pref Name: \(txtPrefName)")
         print("Answer: \(txtAnswer)")
+        print("Question: \(txtQuestion)")
+        print("Class: ios-spring2024")
+        
+        let data = ["first_name" : txtFirstName,
+                    "last_name" : txtLastName,
+                    "pref_name" : txtPrefName,
+                    "question"  : txtQuestion,
+                    "answer"    : txtAnswer,
+                    "class"     : "ios-spring2024"] as [String : Any]
+        
+        var ref: DocumentReference? = nil
+        ref = db.collection("students")
+            .addDocument(data: data) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                }
+            }
     }
 }
 
