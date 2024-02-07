@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct ContentView: View {
+    let db = Firestore.firestore()
     
     @State var txtFirstName: String = ""
     @State var txtLastName: String = ""
@@ -51,6 +53,9 @@ struct ContentView: View {
         .multilineTextAlignment(.center)
         .autocorrectionDisabled(true)
         .padding()
+        .onAppear(){
+            getQuestionsFromFirebase()
+        }
     }
     
     func setRandomQuestion(){
@@ -62,7 +67,22 @@ struct ContentView: View {
     }
     
     func getQuestionsFromFirebase(){
-        
+        db.collection("questions")
+            .getDocuments() {  (querySnapshot,err) in
+                if let err = err { // if error is not nil
+                    print("Error getting documents: \(err)")
+                } else { // Get my question documents from Firebase
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID)")
+                        if let question = Question(id: document.documentID, data: document.data()){
+                            print("Question ID = \(question.id), text = \(question.text)")
+                            
+                            self.questions.append(question)
+                        }
+                    }
+                }
+                
+            }
     }
     
     func writeStudentToFirebase(){
