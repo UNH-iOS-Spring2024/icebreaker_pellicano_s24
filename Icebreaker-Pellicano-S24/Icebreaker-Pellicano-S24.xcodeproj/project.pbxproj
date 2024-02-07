@@ -11,6 +11,7 @@
 		9D9461602B7300CE00B08054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D94615F2B7300CE00B08054 /* ContentView.swift */; };
 		9D9461622B7300CF00B08054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9461612B7300CF00B08054 /* Assets.xcassets */; };
 		9D9461652B7300CF00B08054 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9461642B7300CF00B08054 /* Preview Assets.xcassets */; };
+		9D94616C2B730F4500B08054 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D94616B2B730F4500B08054 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		9D94615F2B7300CE00B08054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9D9461612B7300CF00B08054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D9461642B7300CF00B08054 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9D94616B2B730F4500B08054 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				9D94615F2B7300CE00B08054 /* ContentView.swift */,
 				9D9461612B7300CF00B08054 /* Assets.xcassets */,
 				9D9461632B7300CF00B08054 /* Preview Content */,
+				9D94616B2B730F4500B08054 /* Question.swift */,
 			);
 			path = "Icebreaker-Pellicano-S24";
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D94616C2B730F4500B08054 /* Question.swift in Sources */,
 				9D9461602B7300CE00B08054 /* ContentView.swift in Sources */,
 				9D94615E2B7300CE00B08054 /* Icebreaker_Pellicano_S24App.swift in Sources */,
 			);
